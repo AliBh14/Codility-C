@@ -5,9 +5,12 @@ struct Results solution(int A[], int N, int K) {
     struct Results result;
     unsigned int i;
     int tmp_A[N];
-    if(N != 0){
-	    K %= N;
+    if(N < 2){
+	result.A = A;
+        result.N = N;
+        return result;
     }
+    K %= N;
     for(i = 0; i < N; i++){
         tmp_A[i] = A[((i+N-K)%N)];
     }
